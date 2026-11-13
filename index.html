@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gupta Dairy – शुद्धता हमारी पहचान</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Hind:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF5E6; --card:#FFFDF7; --ink:#2B1A12; --muted:#6B5646;
+  --maroon:#5E1B1B; --gold:#B8862B; --gold-soft:#E9D7A8; --line:#E3D3AE; --on-maroon:#FBF5E6;
+  --red:#A32635;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1E1210; --card:#2A1A16; --ink:#F6EBD3; --muted:#C9B393;
+    --maroon:#3B1010; --gold:#D9A94A; --gold-soft:#5A4420; --line:#4A342B; --on-maroon:#FBF5E6; --red:#E0566A;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1E1210; --card:#2A1A16; --ink:#F6EBD3; --muted:#C9B393;
+  --maroon:#3B1010; --gold:#D9A94A; --gold-soft:#5A4420; --line:#4A342B; --on-maroon:#FBF5E6; --red:#E0566A;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 "Hind","Noto Sans Devanagari",system-ui,sans-serif}
+h1{font-family:"Cinzel",Georgia,serif}
+h2,h3{font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari",Georgia,serif;font-weight:400}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{background:var(--maroon);color:var(--on-maroon);text-align:center;padding:36px 20px 56px;border-bottom:6px double var(--gold)}
+.radhe{font-size:18px;letter-spacing:.08em;color:var(--gold-soft);margin:0 0 18px}
+.hero h1{font-size:clamp(56px,16vw,120px);letter-spacing:.04em;color:var(--on-maroon)}
+.hero .dairy{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(26px,7vw,48px);letter-spacing:.35em;margin:6px 0 0 .35em;color:var(--gold)}
+.seal{display:inline-block;margin:28px auto 8px;padding:16px 28px;border:2px solid var(--gold);border-radius:999px;font-size:19px;line-height:1.5;font-weight:500}
+.seal span{display:block}
+.seal span+span{border-top:1px solid var(--gold);margin-top:6px;padding-top:6px}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 24px;border-radius:8px;border:2px solid var(--gold);font:600 17px "Hind",sans-serif;text-decoration:none;cursor:pointer}
+.btn.fill{background:var(--gold);color:#2B1A12}
+.btn.line{background:transparent;color:var(--on-maroon)}
+
+/* about */
+section{padding:48px 0}
+h2{font-size:clamp(26px,5vw,36px);color:var(--maroon);margin-bottom:14px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) h2{color:var(--gold)}}
+:root[data-theme="dark"] h2{color:var(--gold)}
+.about p{max-width:62ch;margin:0 0 14px}
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0 0;padding:0;list-style:none}
+.pts li{padding:12px 16px;border:1px solid var(--gold);border-radius:10px;background:var(--card);font-weight:500}
+.pts li.sp{border-color:var(--red);color:var(--red)}
+.order{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.order>.wrap>p{margin:0 0 24px;color:var(--muted)}
+.items{display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line);cursor:pointer;min-height:64px}
+.item:first-child{border-top:0}
+.item.on{background:var(--gold-soft)}
+.item .nm{flex:1;min-width:0}
+.item .nm b{display:block;font-weight:600;font-size:18px;line-height:1.3}
+.item .nm small{color:var(--muted);font-size:14px}
+.item.sp .nm b{color:var(--red)}
+.step{display:none;align-items:center;gap:6px}
+.item.on .step{display:flex}
+.item .add{font-weight:600;color:var(--maroon);border:1.5px solid var(--gold);border-radius:999px;padding:4px 14px}
+.item.on .add{display:none}
+:root[data-theme="dark"] .item .add{color:var(--gold)}
+.step button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:var(--card);color:var(--ink);font:600 22px/1 "Hind",sans-serif;cursor:pointer}
+.step output{min-width:64px;text-align:center;font-weight:600;font-size:17px}
+fieldset{border:0;margin:28px 0 0;padding:0;display:grid;gap:14px}
+label,.lbl{display:grid;gap:4px;font-weight:600}
+input,textarea{font:400 17px "Hind",sans-serif;padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:84px;resize:vertical}
+.when{display:flex;gap:8px;flex-wrap:wrap}
+.when button{flex:1;min-height:46px;border:1.5px solid var(--gold);border-radius:8px;background:var(--bg);color:var(--ink);font:500 16px "Hind",sans-serif;cursor:pointer}
+.when button[aria-pressed="true"]{background:var(--gold);color:#2B1A12;font-weight:600}
+.summary{margin:22px 0 0;padding:14px 16px;border-left:4px solid var(--gold);background:var(--bg);min-height:56px}
+.send{margin-top:18px;width:100%;background:var(--maroon);color:var(--on-maroon);border-color:var(--maroon);font-size:19px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .send{background:var(--gold);color:#2B1A12;border-color:var(--gold)}}
+:root[data-theme="dark"] .send{background:var(--gold);color:#2B1A12;border-color:var(--gold)}
+.err{color:var(--red);font-weight:600;margin:10px 0 0;min-height:1.5em}
+.ok{display:none;padding:22px;border:2px solid var(--gold);border-radius:10px;text-align:center;font-size:19px;background:var(--bg)}
+.contact{text-align:center}
+.nums{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.nums a{font:600 22px "Hind",sans-serif;padding:10px 22px;border:2px solid var(--gold);border-radius:8px;text-decoration:none;background:var(--card)}
+footer{background:var(--maroon);color:var(--gold-soft);text-align:center;padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));font-size:15px}
+footer b{color:var(--on-maroon);font-weight:500}
+footer a{color:var(--gold-soft);font-size:13px;opacity:.8}
+/* dashboard */
+#dash{display:none;padding:32px 0 56px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 18px}
+.bar button{min-height:42px;padding:6px 16px;border:1.5px solid var(--gold);border-radius:8px;background:var(--card);color:var(--ink);font:500 16px "Hind",sans-serif;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--gold);color:#2B1A12;font-weight:600}
+.ord{border:1px solid var(--line);border-left:5px solid var(--red);border-radius:10px;background:var(--card);padding:14px 16px;margin-bottom:12px}
+.ord.done{border-left-color:var(--gold);opacity:.7}
+.ord h3{font-size:19px;margin:0 0 4px}
+.ord ul{margin:6px 0;padding-left:20px}
+.ord p{margin:2px 0;font-size:16px}
+.ord .t{color:var(--muted);font-size:14px}
+.ord button{margin-top:8px;min-height:40px;padding:4px 16px;border:1.5px solid var(--gold);border-radius:8px;background:transparent;color:var(--ink);font:500 15px "Hind",sans-serif;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="radhe">॥ राधे राधे ॥</p>
+  <h1>GUPTA</h1>
+  <p class="dairy">DAIRY</p>
+  <div class="seal"><span>शुद्धता हमारी पहचान</span><span>विश्वास आपका, कर्तव्य हमारा</span></div>
+  <div class="cta-row">
+    <a class="btn fill" href="#order">अभी ऑर्डर करें</a>
+    <a class="btn line" href="tel:+919756399648">कॉल करें</a>
+  </div>
+</header>
+
+<form name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="order"><input name="bot-field">
+  <input name="name"><input name="phone"><textarea name="addr"></textarea><input name="when"><input name="note"><textarea name="items"></textarea><input name="total">
+</form>
+
+<main id="site">
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>हमारी डेयरी के बारे में</h2>
+    <p>दूध, दही, घी, पनीर, क्रीम, कोल्ड ड्रिंक और आइस क्रीम, सब एक ही दुकान पर। हमारी पहचान है शुद्धता, और हमारा स्पेशल लाल मट्ठा।</p>
+    <ul class="pts">
+      <li>🥛 रोज़ ताज़ा</li><li>✅ कोई मिलावट नहीं</li><li>🏠 घर तक डिलीवरी</li><li class="sp">⭐ स्पेशल लाल मट्ठा</li>
+    </ul>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2>ऑर्डर करें</h2>
+    <div id="formbox">
+      <p>जो चाहिए उस पर टैप कीजिए, मात्रा चुनिए, फिर अपना नाम और पता भरिए।</p>
+      <div class="items" id="items"></div>
+      <fieldset>
+        <label>आपका नाम<input id="name" autocomplete="name" placeholder="जैसे: रमेश"></label>
+        <label>फ़ोन नंबर<input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10 अंकों का नंबर"></label>
+        <label>डिलीवरी का पता<textarea id="addr" autocomplete="street-address" placeholder="मकान नंबर, गली, इलाका"></textarea></label>
+        <div class="lbl">डिलीवरी का समय<div class="when" id="when"></div></div>
+        <label>कोई ख़ास बात (ज़रूरी नहीं)<input id="note" placeholder="जैसे: घंटी बजा दीजिए"></label>
+      </fieldset>
+      <div class="summary" id="summary" aria-live="polite">अभी कुछ नहीं चुना गया।</div>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn send" id="send" type="button">ऑर्डर भेजें</button>
+    </div>
+    <div class="ok" id="ok"><b>धन्यवाद! आपका ऑर्डर मिल गया।</b><br>हम जल्दी ही आपसे संपर्क करेंगे।<br><br><button class="btn fill" id="again" type="button">एक और ऑर्डर करें</button></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>सीधे बात करें</h2>
+    <p><b>पता:</b> पेपर मिल रोड, हिम्मत नगर, नवल चौक<br><b>समय:</b> रोज़ सुबह 7 बजे से रात 10 बजे तक<br><b>FSSAI Lic. No.:</b> 22726727000135</p>
+    <p><a class="btn line" style="color:var(--ink)" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Paper%20Mill%20Road%20Himmat%20Nagar%20Nawal%20Chowk">📍 Google Maps पर देखें</a></p>
+    <p>ऑर्डर या जानकारी के लिए हमें कॉल करें।</p>
+    <div class="nums">
+      <a href="tel:+919756399648">9756399648</a>
+      <a href="tel:+919389177074">9389177074</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<main id="dash"><div class="wrap">
+  <h2>ऑर्डर डैशबोर्ड</h2>
+  <div id="login">
+    <label>पासवर्ड<input id="pw" type="password" autocomplete="current-password"></label>
+    <button class="btn fill" id="loginBtn" type="button" style="margin-top:12px">खोलें</button>
+  </div>
+  <p id="dmsg" style="min-height:1.5em"></p>
+  <div id="dbody" hidden>
+    <p id="count" style="font-weight:600;font-size:19px;margin:0"></p>
+    <div class="bar">
+      <button type="button" id="fToday" aria-pressed="true">आज</button>
+      <button type="button" id="fNew" aria-pressed="false">नए</button>
+      <button type="button" id="fAll" aria-pressed="false">सभी</button>
+      <button type="button" id="refresh">🔄 रिफ्रेश</button>
+      <a href="#order" class="btn line" style="min-height:42px;color:var(--ink)">← साइट पर लौटें</a>
+    </div>
+    <div id="list"></div>
+  </div>
+</div></main>
+
+<footer>
+  <p><b>Gupta Dairy</b> · शुद्धता की हमारी गारंटी, आपके परिवार की सेहत की ज़िम्मेदारी</p>
+  <p style="margin:6px 0 10px">FSSAI Lic. No. 22726727000135</p>
+  <a href="#dashboard">दुकानदार लॉगिन</a>
+</footer>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i);};
+  var items=[
+    {n:"दूध",e:"Milk",u:"L",s:.5,p:65,pl:"₹65/लीटर"},
+    {n:"दही",e:"Curd",u:"kg",s:.25,p:100,pl:"₹100/किलो"},
+    {n:"स्पेशल लाल मट्ठा",e:"Special Lal Mattha",u:"L",s:.5,sp:1,p:35,pl:"₹35/लीटर"},
+    {n:"घी",e:"Ghee",u:"kg",s:.25,out:1},
+    {n:"पनीर",e:"Paneer",u:"kg",s:.25,p:360,pl:"₹90/250 ग्राम"},
+    {n:"क्रीम",e:"Cream",u:"पैकेट",s:1},
+    {n:"कोल्ड ड्रिंक",e:"Cold Drink",u:"बोतल",s:1},
+    {n:"आइस क्रीम",e:"Ice Cream",u:"कप",s:1}
+  ];
+  var qty=items.map(function(){return 0;}), times=["सुबह","दोपहर","शाम"], when="";
+  function fmt(it,q){
+    if(it.u==="kg") return q<1 ? Math.round(q*1000)+" ग्राम" : (q===1?"1 किलो":(q+" किलो"));
+    if(it.u==="L") return q===.5?"½ लीटर":(q+" लीटर");
+    return q+" "+it.u;
+  }
+  var box=$("items"),sum=$("summary"),err=$("err"),rows=[];
+  items.forEach(function(it,i){
+    var row=document.createElement("div");row.className="item"+(it.sp?" sp":"");
+    row.innerHTML='<div class="nm"><b></b><small></small></div><span class="add">+ जोड़ें</span><div class="step"><button type="button">−</button><output>0</output><button type="button">+</button></div>';
+    row.querySelector("b").textContent=it.n;row.querySelector("small").textContent=it.e+" · "+(it.out?"स्टॉक में नहीं":(it.pl||"रेट दुकान पर पूछें"));
+    var b=row.querySelectorAll("button");
+    b[0].setAttribute("aria-label",it.n+" कम करें");b[1].setAttribute("aria-label",it.n+" बढ़ाएँ");
+    function set(v){qty[i]=Math.max(0,Math.min(20,Math.round(v*100)/100));draw(i);render();}
+    row.onclick=function(){if(!it.out&&!qty[i])set(it.s);};
+    b[0].onclick=function(e){e.stopPropagation();set(qty[i]-it.s);};
+    b[1].onclick=function(e){e.stopPropagation();set(qty[i]+it.s);};
+    if(it.out){row.style.opacity=".55";row.style.cursor="default";var ad=row.querySelector(".add");ad.textContent="स्टॉक में नहीं";ad.style.borderColor="var(--line)";ad.style.color="var(--muted)";}
+    rows.push(row);box.appendChild(row);
+  });
+  function draw(i){rows[i].classList.toggle("on",qty[i]>0);rows[i].querySelector("output").textContent=fmt(items[i],qty[i]);}
+  function lines(){var o=[];items.forEach(function(it,i){if(qty[i]>0)o.push({n:it.n,q:fmt(it,qty[i]),amt:it.p?Math.round(it.p*qty[i]):null});});return o;}
+  function tot(l){return l.reduce(function(a,x){return a+(x.amt||0);},0);}
+  function render(){var l=lines(),t=tot(l),un=l.some(function(x){return x.amt==null;});sum.textContent=l.length?"आपका ऑर्डर: "+l.map(function(x){return x.n+" – "+x.q+(x.amt?" (₹"+x.amt+")":"");}).join(", ")+(t?" · कुल: ₹"+t:"")+(un?" (कुछ चीज़ों का रेट दुकान पर बताया जाएगा)":""):"अभी कुछ नहीं चुना गया।";err.textContent="";}
+  var wb=$("when");
+  times.forEach(function(t){var b=document.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed","false");
+    b.onclick=function(){when=(when===t?"":t);[].forEach.call(wb.children,function(c){c.setAttribute("aria-pressed",String(c.textContent===when));});};wb.appendChild(b);});
+
+  var sending=false;
+  function enc(o){return Object.keys(o).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(o[k]);}).join("&");}
+  $("send").onclick=function(){
+    var l=lines(),name=$("name").value.trim(),phone=$("phone").value.trim(),addr=$("addr").value.trim(),note=$("note").value.trim();
+    if(sending)return;
+    if(!l.length){err.textContent="कृपया कम से कम एक चीज़ चुनिए।";return;}
+    if(!name||!addr){err.textContent="कृपया अपना नाम और डिलीवरी का पता भरिए।";return;}
+    sending=true;err.textContent="भेजा जा रहा है…";
+    var body=enc({"form-name":"order",name:name,phone:phone,addr:addr,when:when,note:note,
+      items:l.map(function(x){return x.n+" – "+x.q+(x.amt?" (₹"+x.amt+")":"");}).join("\n"),total:tot(l)||""});
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
+    .then(function(r){if(!r.ok)throw 0;sending=false;err.textContent="";$("formbox").style.display="none";$("ok").style.display="block";})
+    .catch(function(){sending=false;err.textContent="ऑर्डर नहीं पहुँचा। कृपया 9756399648 पर कॉल करें।";});
+  };
+  $("again").onclick=function(){
+    qty=qty.map(function(){return 0;});items.forEach(function(_,i){draw(i);});
+    ["name","phone","addr","note"].forEach(function(i){$(i).value="";});
+    when="";[].forEach.call(wb.children,function(c){c.setAttribute("aria-pressed","false");});
+    render();$("ok").style.display="none";$("formbox").style.display="block";
+  };
+
+  /* dashboard */
+  var orders=[],done={},filter="today",pass="";
+  try{done=JSON.parse(localStorage.getItem("gd_done")||"{}");}catch(e){}
+  function saveDone(){try{localStorage.setItem("gd_done",JSON.stringify(done));}catch(e){}}
+  function fmtT(ts){var d=new Date(ts);return d.toLocaleDateString("hi-IN",{day:"numeric",month:"short"})+", "+d.toLocaleTimeString("hi-IN",{hour:"numeric",minute:"2-digit"});}
+  function sameDay(ts){return new Date(ts).toDateString()===new Date().toDateString();}
+  function paint(){
+    var all=orders.map(function(o){o.status=done[o.id]?"done":"new";return o;}).sort(function(a,b){return b.ts-a.ts;});
+    $("count").textContent="आज के ऑर्डर: "+all.filter(function(o){return sameDay(o.ts);}).length+" · नए (बाक़ी): "+all.filter(function(o){return o.status==="new";}).length;
+    var f=all.filter(function(o){return filter==="today"?sameDay(o.ts):filter==="new"?o.status==="new":true;});
+    var list=$("list");list.textContent="";
+    if(!f.length){var p=document.createElement("p");p.textContent="कोई ऑर्डर नहीं।";list.appendChild(p);return;}
+    f.forEach(function(o){
+      var d=o.data||{};
+      var c=document.createElement("div");c.className="ord"+(o.status==="done"?" done":"");
+      var h=document.createElement("h3");h.textContent=(d.name||"")+(d.phone?" · "+d.phone:"");c.appendChild(h);
+      var t=document.createElement("p");t.className="t";t.textContent=fmtT(o.ts)+(d.when?" · डिलीवरी: "+d.when:"");c.appendChild(t);
+      var ul=document.createElement("ul");String(d.items||"").split("\n").forEach(function(x){if(!x)return;var li=document.createElement("li");li.textContent=x;ul.appendChild(li);});c.appendChild(ul);
+      if(d.total){var tp=document.createElement("p");tp.style.fontWeight="600";tp.textContent="कुल: ₹"+d.total;c.appendChild(tp);}
+      var a=document.createElement("p");a.textContent="पता: "+(d.addr||"");c.appendChild(a);
+      if(d.note){var n=document.createElement("p");n.textContent="नोट: "+d.note;c.appendChild(n);}
+      if(d.phone){var call=document.createElement("a");call.href="tel:"+d.phone;call.textContent="📞 कॉल करें";call.style.marginRight="12px";c.appendChild(call);}
+      var b=document.createElement("button");b.type="button";b.textContent=o.status==="done"?"फिर से 'नया' करें":"डिलीवर हो गया ✓";
+      b.onclick=function(){if(done[o.id])delete done[o.id];else done[o.id]=1;saveDone();paint();};
+      c.appendChild(b);list.appendChild(c);
+    });
+  }
+  [["fToday","today"],["fNew","new"],["fAll","all"]].forEach(function(p){$(p[0]).onclick=function(){filter=p[1];[["fToday","today"],["fNew","new"],["fAll","all"]].forEach(function(q){$(q[0]).setAttribute("aria-pressed",String(q[1]===filter));});paint();};});
+  function load(){
+    $("dmsg").textContent="लोड हो रहा है…";
+    return fetch("/.netlify/functions/orders",{headers:{"x-dash-pass":pass}}).then(function(r){
+      if(r.status===401){throw "pw";}
+      if(!r.ok){throw "err";}
+      return r.json();
+    }).then(function(j){
+      orders=j.orders||[];$("login").style.display="none";$("dmsg").textContent="";$("dbody").hidden=false;paint();
+    }).catch(function(e){
+      $("dbody").hidden=true;$("login").style.display="";
+      $("dmsg").textContent=e==="pw"?"पासवर्ड ग़लत है।":"ऑर्डर लोड नहीं हो पाए।";
+    });
+  }
+  $("loginBtn").onclick=function(){pass=$("pw").value;try{sessionStorage.setItem("gd_pw",pass);}catch(e){}load();};
+  $("pw").onkeydown=function(e){if(e.key==="Enter")$("loginBtn").onclick();};
+  $("refresh").onclick=load;
+  function openDash(){
+    $("site").style.display="none";$("dash").style.display="block";window.scrollTo(0,0);
+    try{pass=sessionStorage.getItem("gd_pw")||"";}catch(e){}
+    if(pass)load();
+  }
+  function route(){
+    if(location.hash==="#dashboard"){openDash();}
+    else{$("dash").style.display="none";$("site").style.display="";}
+  }
+  window.addEventListener("hashchange",route);
+  route();
+})();
+</script>
+</body>
+</html>
